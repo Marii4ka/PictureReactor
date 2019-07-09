@@ -1,7 +1,8 @@
 <?php
 
+require_once 'class/Session.php';
 
-class Controller
+class controller
 {
 
     public $model;
@@ -10,6 +11,7 @@ class Controller
     function __construct()
     {
         $this->view = new View();
+        Session::init();
     }
 
     function action_index()

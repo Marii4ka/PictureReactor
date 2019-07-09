@@ -11,7 +11,8 @@ class Model
             case 'main':
                 $user_id = $data['user_id'];
                 $image = $data['image'];
-                Database::query("INSERT INTO posts (`image`, `user_id`) VALUES ($user_id, $image)");
+                echo "INSERT INTO posts (`image`, `user_id`) VALUES ($image, $user_id)";
+                Database::query("INSERT INTO posts (`image`, `user_id`) VALUES ($image, $user_id)");
                 break;
             case 'registr':
                 $user_name = $data['user_name'];

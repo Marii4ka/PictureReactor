@@ -1,4 +1,12 @@
-<h1> Welcome! </h1>
+<?php
+if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+    ?>
+    <div class="post-new">
+        <a href="http://localhost/pictures/main/new">New post!</a>
+    </div>
+    <?php
+}
+?>
 
 <?php
 if (empty($data)) {
@@ -8,37 +16,37 @@ if (empty($data)) {
     </div>
     <?php
 } else {
-    foreach ($data as $item) {
+    foreach ($data['posts'] as $post) {
         ?>
         <div class="item container-fluid">
             <div class="item-info row">
-                <div class="item-name col-1">
-                    <?php echo $item['name']; ?>
-                </div>
+                <!--- <div class="item-name col-1">
+                    <?php echo $post['image']; ?>
+                </div> --->
                 <div class="image col-1">
-                    <img src="<?php print ('http://localhost/pictures/' . $item['image']); ?>" width="100px"
-                         height="100px">
+                    <img src="<?php print ('http://localhost/pictures/' . $post['image']); ?>" width="300px"
+                         height="300px">
                 </div>
             </div>
             <div class="comments container-fluid">
-                <?php
-                foreach ($data as $item) {
+                <!---   <?php
+                foreach ($data as $comment) {
                     ?>
                     <div class="comment row">
                         <div class="comment-user-icon col">
-                            <img src="<?php print ('http://localhost/pictures/' . $item['image']); ?>" width="50px"
+                            <img src="<?php print ('http://localhost/pictures/' . $comment['image']); ?>" width="50px"
                                  height="50px">
                         </div>
                         <div class="comment-user-name col">
                             User name
                         </div>
                         <div class="comment-text col-9">
-                            <?php echo $item['code']; ?>
+                            <?php echo $comment['code']; ?>
                         </div>
                     </div>
                     <?php
                 }
-                ?>
+                ?> ---->
             </div>
         </div>
         <?php

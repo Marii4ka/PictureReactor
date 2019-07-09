@@ -4,8 +4,8 @@ class auth_controller extends controller
 {
     public function __construct()
     {
+        parent::__construct();
         $this->model = new auth_model();
-        $this->view = new View();
     }
 
     public function action_index()
@@ -21,6 +21,7 @@ class auth_controller extends controller
     public function action_logout()
     {
         Session::abort();
+        header("Location: http://localhost/pictures/main/index");
         exit;
     }
 }
